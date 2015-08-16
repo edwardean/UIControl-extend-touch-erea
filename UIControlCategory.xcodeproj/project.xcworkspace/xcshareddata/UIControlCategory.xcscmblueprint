@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6D035A37B69DA4F535A08C5D9A2DAFF6E542F2FD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6D035A37B69DA4F535A08C5D9A2DAFF6E542F2FD" : 0,
+    "4DCABB4C9F0EBEED21B4195BD0B9F1983A269A46" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "27F0B29A-C6AA-4445-814B-63FC9FE925EC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6D035A37B69DA4F535A08C5D9A2DAFF6E542F2FD" : "UIControlCategory\/",
+    "4DCABB4C9F0EBEED21B4195BD0B9F1983A269A46" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "UIControlCategory",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "UIControlCategory.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/edwardean\/hlalertbox.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4DCABB4C9F0EBEED21B4195BD0B9F1983A269A46"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:edwardean\/UIControl-extend-touch-erea.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6D035A37B69DA4F535A08C5D9A2DAFF6E542F2FD"
+    }
+  ]
+}

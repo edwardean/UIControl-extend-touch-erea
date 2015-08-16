@@ -22,7 +22,9 @@ static const char *kUIControlExtened;
 {
     NSValue *value = objc_getAssociatedObject(self, &kUIControlExtened);
     if(value) {
-        UIEdgeInsets edgeInsets; [value getValue:&edgeInsets]; return edgeInsets;
+        UIEdgeInsets touchEdgeInsets = UIEdgeInsetsZero;
+        [value getValue:&touchEdgeInsets];
+        return touchEdgeInsets;
     }else {
         return UIEdgeInsetsZero;
     }
@@ -30,14 +32,14 @@ static const char *kUIControlExtened;
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    if(UIEdgeInsetsEqualToEdgeInsets(self.touchAreaInsets, UIEdgeInsetsZero) || !self.enabled || self.hidden) {
+    if(UIEdgeInsetsEqualToEdgeInsets(self.touchAreaInsets, UIEdgeInsetsZero) ||
+       !self.enabled || self.hidden) {
         return [super pointInside:point withEvent:event];
     }
     
-    CGRect relativeFrame = self.bounds;
-    CGRect hitFrame = UIEdgeInsetsInsetRect(relativeFrame, self.touchAreaInsets);
+    CGRect hitAreaFrame = UIEdgeInsetsInsetRect(self.bounds, self.touchAreaInsets);
     
-    return CGRectContainsPoint(hitFrame, point);
+    return CGRectContainsPoint(hitAreaFrame, point);
 }
 
 @end
