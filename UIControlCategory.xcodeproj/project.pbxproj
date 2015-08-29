@@ -134,6 +134,7 @@
 				FD9487921B7D82DB0063FAA9 /* Sources */,
 				FD9487931B7D82DB0063FAA9 /* Frameworks */,
 				FD9487941B7D82DB0063FAA9 /* Resources */,
+				FD7DC0D71B91FE7D00A181DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -218,6 +219,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FD7DC0D71B91FE7D00A181DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Current Build Configuration : ${CONFIGURATION}\"\nif [ \"Release\" != \"${CONFIGURATION}\" ]; then\n\nPATH=${PATH}:/usr/local/bin\n\nIFS=$'\\n'\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\nfunction generateIcon () {\n    \n    BASE_IMAGE_NAME=$1\n    \n    BASE_IMAGE_PATH=$(find ${SRCROOT} -name ${BASE_IMAGE_NAME})\n    \n    TARGET_PATH=\"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${BASE_IMAGE_NAME}\"\n    \n    WIDTH=$(identify -format %w ${BASE_IMAGE_PATH})\n    \n    FONT_SIZE=$(echo \"$WIDTH * .2\" | bc -l)\n    \n    echo \"use font size $FONT_SIZE, version:$versionNumber, build:$buildNumber\"\n    \n    echo ${TARGET_PATH}\n    \n    convert ${BASE_IMAGE_PATH} -fill white  -font Times-Bold \\\n    -pointsize ${FONT_SIZE} -gravity south -annotate 0 \"$versionNumber $buildNumber\" ${TARGET_PATH}\n}\nif hash convert 2>/dev/null; then\ngenerateIcon \"AppIcon60x60@2x.png\"\ngenerateIcon \"AppIcon60x60@3x.png\"\nelse\necho \"ImageMagick not installed.\"\nfi\n\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FD9487921B7D82DB0063FAA9 /* Sources */ = {
@@ -422,6 +439,7 @@
 				FD9487BB1B7D82DB0063FAA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD9487BC1B7D82DB0063FAA9 /* Build configuration list for PBXNativeTarget "UIControlCategoryTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +448,7 @@
 				FD9487BE1B7D82DB0063FAA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
